@@ -15,11 +15,11 @@ const imagePath = path.join(__dirname, 'public', 'images', 'picture.jpg');
 const videoPath = path.join(__dirname, 'public', 'videos', 'video.mp4');
 
 // Setup video encoder
-// const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-// const ffprobePath = require('@ffprobe-installer/ffprobe').path;
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffprobePath = require('@ffprobe-installer/ffprobe').path;
 const ffmpeg = require('fluent-ffmpeg');
-// ffmpeg.setFfmpegPath(ffmpegPath);
-// ffmpeg.setFfprobePath(ffprobePath);
+ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
 
 const GPhoto = new gphoto2.GPhoto2();
 const app = express();
@@ -78,6 +78,33 @@ app.post('/takePicture', async (req, res) => {
 
     res.status(200).send({
       message: 'Picture taken',
+    });
+  } catch (error) {
+    logger.warn(error);
+
+    res.status(500).send({ 
+      message: error,
+    });
+  }
+})
+
+app.post('/takePreview', async (req, res) => {
+  logger.info(`Taking preview`);
+
+  const output = path.join(__dirname, 'public', 'videos', 'preview.mp4');
+
+  try {
+    camera.takePicture({
+      preview: true,
+      targetPath: output,
+    }, function (er, tmpname) {
+      logger.warn('Error previewing');
+      logger.warn(er);
+      fs.renameSync(tmpname, __dirname + '/preview.jpg');
+    });
+
+    res.status(200).send({
+      message: 'Preview started',
     });
   } catch (error) {
     logger.warn(error);
