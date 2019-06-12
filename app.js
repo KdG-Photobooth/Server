@@ -92,6 +92,7 @@ app.get('/takePreview', async (req, res) => {
   logger.info(`Taking preview`);
 
   const output = path.join(__dirname, 'public', 'videos', 'preview.mp4');
+  console.log("TCL: output", output)
 
   try {
     camera.takePicture({
