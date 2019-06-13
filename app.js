@@ -97,7 +97,6 @@ app.get('/takePreview', async (req, res) => {
   try {
     camera.takePicture({
       preview: true,
-      targetPath: output,
     }, function (er, tmpname) {
       console.log("TCL: tmpname", tmpname)
       logger.warn('Error previewing');
