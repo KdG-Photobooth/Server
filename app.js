@@ -102,7 +102,7 @@ app.get('/takePreview', async (req, res) => {
       console.log("TCL: tmpname", tmpname)
       logger.warn('Error previewing');
       logger.warn(er);
-      fs.renameSync(tmpname, __dirname + '/preview.jpg');
+      // fs.renameSync(tmpname, __dirname + '/preview.jpg');
     });
 
     res.status(200).send({
