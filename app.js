@@ -91,7 +91,7 @@ app.post('/takePicture', async (req, res) => {
 app.get('/takePreview', async (req, res) => {
   logger.info(`Taking preview`);
 
-  const output = path.join(__dirname, 'public', 'videos', 'preview.mp4');
+  const output = path.join(__dirname, 'public', 'videos', 'preview.jpg');
   console.log("TCL: output", output)
 
   try {
