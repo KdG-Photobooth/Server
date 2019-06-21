@@ -137,7 +137,7 @@ app.post('/createGif', async (req, res) => {
 
   ffmpeg()
     .input(path.join(__dirname, 'public', 'images', 'image%d.jpg'))
-    .inputFPS(1)
+    .inputFPS(25)
     .size('1200x800')
     .save(input)
     .on('start', function (command) {
