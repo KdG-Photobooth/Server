@@ -349,7 +349,7 @@ app.post('/sendPictureToEmail', (req, res) => {
             </table>
           </td>
         </tr>
-        <tr>
+        <tr style="margin-bottom: 20px;">
           <td>
             <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
                 <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
