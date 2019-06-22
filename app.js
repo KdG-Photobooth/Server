@@ -356,7 +356,7 @@ app.post('/sendPictureToEmail', (req, res) => {
             </a>
           </td>
           <td>
-            <a href="https://twitter.com/share?url=${imageLink};hashtags=kdgfeest" target="_blank">
+            <a href="https://twitter.com/share?url=${imageLink}&amp;hashtags=kdgfeest" target="_blank">
                 <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
             </a>
           </td>
