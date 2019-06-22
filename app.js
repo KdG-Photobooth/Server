@@ -308,23 +308,8 @@ app.post('/sendPictureToEmail', (req, res) => {
                       Het proclamatie-team</td>
                     </tr>
                     <tr style="font-family: 'Arial', sans-serif;">
-                      <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="${imageLink}" style="background-size: 100%; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                        <!--[if gte mso 9]>
-                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: 100%; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
-                            <v:fill type="tile" src="${imageLink}" color="#fff" />
-                            <v:textbox inset="0,0,0,0">
-                              <![endif]-->
-                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                  <tr style="font-family: 'Arial', sans-serif;">
-                                    <td width="125" height="375" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                    </td>
-                                    <td width="100" height="335" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                                  </tr>
-                                </table>
-                              <!--[if gte mso 9]>
-                            </v:textbox>
-                          </v:rect>
-                        <![endif]-->
+                      <td>
+                        <img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />
                       </td>
                     </tr>
                   </table>
