@@ -216,6 +216,7 @@ app.post('/sendPictureToEmail', (req, res) => {
   const fromEmail = 'postmaster@kdgphotobooth.be';
   const toEmail = req.body.email;
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
+  const imageLink = req.body.imageLink;
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
@@ -308,16 +309,16 @@ app.post('/sendPictureToEmail', (req, res) => {
                     </tr>
                     <tr>
                       <td>
-                        <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+                        <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
                             <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
                         </a>
                       </td>
                     </tr>
                     <tr style="font-family: 'Arial', sans-serif;">
-                      <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="cid:unique@nodemailer.com" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                      <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="${imageLink}" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
                         <!--[if gte mso 9]>
                           <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
-                            <v:fill type="tile" src="cid:unique@nodemailer.com" color="#fff" />
+                            <v:fill type="tile" src="${imageLink}" color="#fff" />
                             <v:textbox inset="0,0,0,0">
                               <![endif]-->
                                 <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
