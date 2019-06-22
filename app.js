@@ -349,7 +349,7 @@ app.post('/sendPictureToEmail', (req, res) => {
             </table>
           </td>
         </tr>
-        <tr style="margin-bottom: 20px;">
+        <tr>
           <td>
             <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
                 <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
@@ -363,7 +363,7 @@ app.post('/sendPictureToEmail', (req, res) => {
         </tr>
       </table>
       <!-- footer -->
-      <table style="min-width: 320px;border-top: 1px solid #191414;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7">
+      <table style="margin-top: 20px;min-width: 320px;border-top: 1px solid #191414;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7">
         <tr style="font-family: 'Arial', sans-serif;">
           <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
             <table class="flexible" width="600" align="center" style="margin: 0 auto;font-family: 'Arial', sans-serif;" cellpadding="0" cellspacing="0">
