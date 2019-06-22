@@ -307,18 +307,6 @@ app.post('/sendPictureToEmail', (req, res) => {
                       <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
                       Het proclamatie-team</td>
                     </tr>
-                    <tr>
-                      <td>
-                        <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
-                            <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-                        </a>
-                      </td>
-                      <td>
-                      <a href="https://twitter.com/share?url=${imageLink};hashtags=kdgfeest" target="_blank">
-                      <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-                  </a>
-                      </td>
-                    </tr>
                     <tr style="font-family: 'Arial', sans-serif;">
                       <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="${imageLink}" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
                         <!--[if gte mso 9]>
@@ -359,6 +347,18 @@ app.post('/sendPictureToEmail', (req, res) => {
                 </td>
               </tr>
             </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+            </a>
+          </td>
+          <td>
+            <a href="https://twitter.com/share?url=${imageLink};hashtags=kdgfeest" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+            </a>
           </td>
         </tr>
       </table>
