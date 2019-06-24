@@ -227,7 +227,7 @@ app.post('/sendPictureToEmail', (req, res) => {
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
   const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
 
-  const imageHTML = req.body.format === 'single' ? `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />` : `<video autoPlay playsInline loop src="${imageLink}" style="width:100%;" src=${imageLink}></video>`
+  const imageHTML = `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />`
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
