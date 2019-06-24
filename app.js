@@ -167,13 +167,13 @@ app.get('/file', async (req, res) => {
   console.log("TCL: req.query.format", req.query.format)
   try {
     const file = await fs.readFileSync(filePath);
+    return res.status(200).sendFile(file);
   } catch (error) {
   console.log("TCL: error", error)
     
   }
   console.log("TCL: file", file)
 
-  return res.status(200).sendFile(file);
 })
 
 app.post('/uploadLastImageTaken', async (req, res) => {
