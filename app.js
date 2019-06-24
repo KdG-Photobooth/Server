@@ -163,7 +163,15 @@ app.post('/createGif', async (req, res) => {
 
 app.get('/file', async (req, res) => {
   const filePath = req.query.format === 'single' ? imagePath : videoPath;
-  const file = fs.readFileSync(filePath);
+  console.log("TCL: filePath", filePath)
+  console.log("TCL: req.query.format", req.query.format)
+  try {
+    const file = fs.readFileSync(filePath);
+  } catch (error) {
+  console.log("TCL: error", error)
+    
+  }
+  console.log("TCL: file", file)
 
   return res.status(200).sendFile(file);
 })
