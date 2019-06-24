@@ -163,8 +163,11 @@ app.post('/createGif', async (req, res) => {
 
 app.get('/file', async (req, res) => {
   const filePath = req.query.format === 'single' ? imagePath : videoPath;
+  const filePrefix = req.query.format === 'single' ? "data:image/png;base64," : "data:video/mp4;base64,";
 
-  return res.status(200).sendFile(filePath);
+  const file = filePrefix + fs.readFileSync(filePath).toString('base64');
+
+  res.status(200).send(file);
 })
 
 app.post('/uploadLastImageTaken', async (req, res) => {
