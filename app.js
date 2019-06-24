@@ -165,15 +165,13 @@ app.get('/file', async (req, res) => {
   const filePath = req.query.format === 'single' ? imagePath : videoPath;
   console.log("TCL: filePath", filePath)
   console.log("TCL: req.query.format", req.query.format)
-  try {
-    const file = await fs.readFileSync(filePath);
+  const file = fs.readFile(filePath, (err, data) => {
+    if(err) {
+      logger.warn(err)
+      return err;
+    }
     return res.status(200).sendFile(file);
-  } catch (error) {
-  console.log("TCL: error", error)
-    
-  }
-  console.log("TCL: file", file)
-
+  });
 })
 
 app.post('/uploadLastImageTaken', async (req, res) => {
