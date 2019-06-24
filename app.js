@@ -319,7 +319,6 @@ app.post('/sendPictureToEmail', (req, res) => {
                    
 								<tr style="font-family: 'Arial', sans-serif;">
                 <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="url(${imageLink})" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                  console.log('image:', image)
                   <!--[if gte mso 9]>
                     <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
                       <v:fill type="tile" src="${imageLink}" color="#fff" />
