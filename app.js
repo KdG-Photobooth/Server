@@ -222,7 +222,7 @@ app.post('/sendPictureToEmail', (req, res) => {
   const fromEmail = 'postmaster@kdgphotobooth.be';
   const toEmail = req.body.email;
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
-  const imageLink = req.body.imageLink;
+  const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
 
   const imageHTML = req.body.format === 'single' ? `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />` : `<video autoPlay playsInline loop src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;"><source src=${imageLink} type="video/mp4" /></video>`
 
