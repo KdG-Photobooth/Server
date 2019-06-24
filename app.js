@@ -227,9 +227,6 @@ app.post('/sendPictureToEmail', (req, res) => {
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
   const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
 
-  const imageHTML = `<td align="center" bgcolor="#fff" style="padding: 0 0 50px 0; background-color: #fff; background: url(${imageLink}) top center no-repeat;background-size: cover;" width="100%">
-  `
-
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
     port: 465,
@@ -319,9 +316,50 @@ app.post('/sendPictureToEmail', (req, res) => {
                       <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
                       Het proclamatie-team</td>
                     </tr>
-                    <tr style="font-family: 'Arial', sans-serif;">
-                        ${imageHTML}
-                    </tr>
+                   
+								<tr style="font-family: 'Arial', sans-serif;">
+                <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="url(${imageLink})" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                  console.log('image:', image)
+                  <!--[if gte mso 9]>
+                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
+                      <v:fill type="tile" src="${imageLink}" color="#fff" />
+                      <v:textbox inset="0,0,0,0">
+                        <![endif]-->
+                          <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                            <tr style="font-family: 'Arial', sans-serif;">
+                              <td width="125" height="375" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                <!-- Txt on img
+                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                  <tr style="font-family: 'Arial', sans-serif;">
+                                    <td class="box-01" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                      <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                        <tr style="font-family: 'Arial', sans-serif;">
+                                          <td class="hide" width="20" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                                          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                            <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                              <tr style="font-family: 'Arial', sans-serif;">
+                                                <td align="left" style="font: 30px/42px Arial, sans-serif;font-weight: bold;text-transform: uppercase;color: #fff;padding: 0 0 10px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                                  
+                                                </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                          <td class="hide" width="35" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>-->
+                              </td>
+                              <td width="100" height="335" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                            </tr>
+                          </table>
+                        <!--[if gte mso 9]>
+                      </v:textbox>
+                    </v:rect>
+                  <![endif]-->
+                </td>
+              </tr>
                   </table>
                 </td>
               </tr>
