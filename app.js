@@ -227,7 +227,8 @@ app.post('/sendPictureToEmail', (req, res) => {
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
   const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
 
-  const imageHTML = `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />`
+  const imageHTML = `<td align="center" bgcolor="#fff" style="padding: 0 0 50px 0; background-color: #fff; background: url(${imageLink}) top center no-repeat;background-size: cover;" width="100%">
+  `
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
@@ -319,9 +320,7 @@ app.post('/sendPictureToEmail', (req, res) => {
                       Het proclamatie-team</td>
                     </tr>
                     <tr style="font-family: 'Arial', sans-serif;">
-                      <td>
                         ${imageHTML}
-                      </td>
                     </tr>
                   </table>
                 </td>
