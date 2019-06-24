@@ -166,7 +166,7 @@ app.get('/file', async (req, res) => {
   console.log("TCL: filePath", filePath)
   console.log("TCL: req.query.format", req.query.format)
   try {
-    const file = fs.readFileSync(filePath);
+    const file = await fs.readFileSync(filePath);
   } catch (error) {
   console.log("TCL: error", error)
     
