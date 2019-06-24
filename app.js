@@ -227,7 +227,7 @@ app.post('/sendPictureToEmail', (req, res) => {
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
   const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
 
-  const imageHTML = req.body.format === 'single' ? `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />` : `<video autoPlay playsInline loop src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;"><source src=${imageLink} type="video/mp4" /></video>`
+  const imageHTML = req.body.format === 'single' ? `<img src="${imageLink}" style="width:100%; background-repeat:no-repeat; background-size:100%;" />` : `<video autoPlay playsInline loop src="${imageLink}" style="width:100%;" src=${imageLink}></video>`
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
@@ -389,7 +389,7 @@ app.post('/sendPictureToEmail', (req, res) => {
                               <table class="table-center footer-links" align="right" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
                                 <tr style="font-family: 'Arial', sans-serif;">
                                   <td class="active" align="center" style="line-height: 20px;font-size: 14px;mso-line-height-rule: at-least;padding: 25px 10px 0;font-family: 'Arial', sans-serif;-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-ms-transition: all 0.3s ease;transition: all 0.3s ease;">
-                                    <a target="_blank" href="${req.body.albumLink}" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #34bedc;text-decoration: none;">Online bekijken</a>
+                                    <a target="_blank" href="${imageLink}" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #34bedc;text-decoration: none;">Online bekijken</a>
                                   </td>
                                 </tr>
                               </table>
