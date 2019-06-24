@@ -345,6 +345,11 @@ app.post('/sendPictureToEmail', (req, res) => {
                 <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
             </a>
           </td>
+          <td>
+            <a href="https://www.pinterest.com/pin/create/button/?&url=${imageLink}&media=${imageLink}&description=#kdgfeest" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+            </a>
+          </td>
         </tr>
       </table>
       <!-- footer -->
