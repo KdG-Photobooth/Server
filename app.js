@@ -161,6 +161,13 @@ app.post('/createGif', async (req, res) => {
     })
 });
 
+app.get('/file', async (req, res) => {
+  const filePath = req.query.format === 'single' ? imagePath : videoPath;
+  const file = fs.readFileSync(filePath);
+
+  return res.status(200).sendFile(file);
+})
+
 app.post('/uploadLastImageTaken', async (req, res) => {
   const date = Date.now();
   const filename = `${date}_kdg-photobooth.jpg`;
