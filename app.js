@@ -163,15 +163,8 @@ app.post('/createGif', async (req, res) => {
 
 app.get('/file', async (req, res) => {
   const filePath = req.query.format === 'single' ? imagePath : videoPath;
-  console.log("TCL: filePath", filePath)
-  console.log("TCL: req.query.format", req.query.format)
-  const file = fs.readFile(filePath, (err, data) => {
-    if(err) {
-      logger.warn(err)
-      return err;
-    }
-    return res.status(200).sendFile(file);
-  });
+
+  return res.status(200).sendFile(filePath);
 })
 
 app.post('/uploadLastImageTaken', async (req, res) => {
