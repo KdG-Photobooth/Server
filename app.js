@@ -322,7 +322,7 @@ app.post('/sendPictureToEmail', (req, res) => {
                                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
                                         <tbody><tr>
                                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                                <img align="center" alt="" src="${req.body.albumLink}" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
+                                                <img align="center" alt="" src="${imageLink}" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                             </td>
                                         </tr>
                                         </tbody></table>
