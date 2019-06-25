@@ -317,65 +317,18 @@ app.post('/sendPictureToEmail', (req, res) => {
                                     Het proclamatie-team</td>
                             </tr>
 
-                            <tr style="font-family: 'Arial', sans-serif;">
-                                <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="url(${imageLink})" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                    <!--[if gte mso 9]>
-                                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
-                                        <v:fill type="tile" src="${imageLink}" color="#fff" />
-                                        <v:textbox inset="0,0,0,0">
-                                    <![endif]-->
-                                    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                        <tr style="font-family: 'Arial', sans-serif;">
-                                            <td width="125" height="375" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                                <!-- Txt on img
-                                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                                  <tr style="font-family: 'Arial', sans-serif;">
-                                                    <td class="box-01" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                                      <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                                        <tr style="font-family: 'Arial', sans-serif;">
-                                                          <td class="hide" width="20" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                                                          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                                            <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                                              <tr style="font-family: 'Arial', sans-serif;">
-                                                                <td align="left" style="font: 30px/42px Arial, sans-serif;font-weight: bold;text-transform: uppercase;color: #fff;padding: 0 0 10px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-
-                                                                </td>
-                                                              </tr>
-                                                            </table>
-                                                          </td>
-                                                          <td class="hide" width="35" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                                                        </tr>
-                                                      </table>
-                                                    </td>
-                                                  </tr>
-                                                </table>-->
+                            <tr>
+                                <td valign="top" style="padding:5px 0 5px" class="mcnImageBlockInner">
+                                    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
+                                        <tbody><tr>
+                                            <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
+                                                <img align="center" alt="" src="${req.body.albumLink}" width="600" style="max-width:600px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
                                             </td>
-                                            <td width="100" height="335" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
                                         </tr>
-                                    </table>
-                                    <!--[if gte mso 9]>
-                                    </v:textbox>
-                                    </v:rect>
-                                    <![endif]-->
+                                        </tbody></table>
                                 </td>
                             </tr>
                         </table>
-                    </td>
-                </tr>
-                <tr style="font-family: 'Arial', sans-serif;">
-                    <td class="block-holder" style="padding: 50px 0 50px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;" align="center">
-                        <div style="font-family: 'Arial', sans-serif;">
-                            <!--[if mso]>
-                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${req.body.albumLink}" rel="noopener" style="height:40px;v-text-anchor:middle;width:300px;" arcsize="100%" stroke="f" fillcolor="#000">
-                                <w:anchorlock/>
-                                <center>
-                            <![endif]-->
-                            <a href="${req.body.albumLink}" target="_blank" rel="noopener" style="background-color: #000;border-radius: 40px;color: #fff;display: inline-block;font-family: Arial;text-transform: uppercase;font-weight: bold;line-height: 40px;text-align: center;text-decoration: none;width: 300px;-webkit-text-size-adjust: none;outline: none;">Bekijk het album!</a>
-                            <!--[if mso]>
-                            </center>
-                            </v:roundrect>
-                            <![endif]-->
-                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -458,7 +411,7 @@ app.post('/sendPictureToEmail', (req, res) => {
                                                             </td>
                                                             <![endif]-->
 
-                                                           
+
 
                                                             <!--[if mso]>
                                                             <td align="center" valign="top">
