@@ -225,7 +225,7 @@ app.post('/sendPictureToEmail', (req, res) => {
   const fromEmail = 'postmaster@kdgphotobooth.be';
   const toEmail = req.body.email;
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
-  const imageLink = (req.body.format === 'single' ? req.body.imageLink : `${req.body.imagelink.substring(0, req.body.imagelink.length - 3)}gif`) || 'cid:unique@nodemailer.com';
+  const imageLink = (req.body.format === 'single' ? req.body.imageLink : `${req.body.imageLink.substring(0, req.body.imageLink.length - 3)}gif`) || 'cid:unique@nodemailer.com';
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
