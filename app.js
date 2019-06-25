@@ -244,204 +244,317 @@ app.post('/sendPictureToEmail', (req, res) => {
     html: 
     `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Arial', sans-serif;">
-    <head style="font-family: 'Arial', sans-serif;">
-      <title style="font-family: 'Arial', sans-serif;">KdG ${req.body.title}</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" style="font-family: 'Arial', sans-serif;">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" style="font-family: 'Arial', sans-serif;">
-      <style type="text/css" style="font-family: 'Arial', sans-serif;">
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Arial', sans-serif;">
+<head style="font-family: 'Arial', sans-serif;">
+    <title style="font-family: 'Arial', sans-serif;">KdG ${req.body.title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" style="font-family: 'Arial', sans-serif;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" style="font-family: 'Arial', sans-serif;">
+    <style type="text/css" style="font-family: 'Arial', sans-serif;">
         *{
-          font-family: 'Arial', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         a{
-          outline:none;
-          color:#34bedc;
-          text-decoration:none;
+            outline:none;
+            color:#34bedc;
+            text-decoration:none;
         }
         .footer-links a:hover{border-bottom: 1px solid #34bedc;}
         .post-footer a:hover{text-decoration:underline !important;}
         .active:hover{opacity:0.8;}
         .active{
-          -webkit-transition:all 0.3s ease;
-          -moz-transition:all 0.3s ease;
-          -ms-transition:all 0.3s ease;
-          transition:all 0.3s ease;
+            -webkit-transition:all 0.3s ease;
+            -moz-transition:all 0.3s ease;
+            -ms-transition:all 0.3s ease;
+            transition:all 0.3s ease;
         }
         a img{border:none !important;}
         .address span{color:inherit !important; border:none !important;}
         table td{mso-line-height-rule:exactly;}
         @media only screen and (max-width:500px) {
-          table[class="flexible"]{width:100% !important;}
-          table[class="table-center"]{float:none !important; margin:0 auto !important; width:auto !important;}
-          *[class="hide"]{display:none !important; width:0 !important; height:0 !important; padding:0 !important; font-size:0 !important; line-height:0 !important;}
-          td[class~="aligncenter"]{text-align:center !important;}
-          th[class~="flex"]{display:block !important; width:100% !important;}
-          td[class~="logo"]{padding:30px 20px !important;}
-          td[class~="block-holder"]{padding:20px 0 !important;}
-          td[class~="bg-holder"]{background-size:cover !important; padding:30px !important;}
-          td[class~="box-01"]{padding:20px 30px !important;}
-          td[class~="p-b-30"]{padding-bottom:30px !important;}
-          td[class~="box-holder"]{padding:20px 15px !important;}
-          td[class="footer"]{padding:0 10px !important;}
+            table[class="flexible"]{width:100% !important;}
+            table[class="table-center"]{float:none !important; margin:0 auto !important; width:auto !important;}
+            *[class="hide"]{display:none !important; width:0 !important; height:0 !important; padding:0 !important; font-size:0 !important; line-height:0 !important;}
+            td[class~="aligncenter"]{text-align:center !important;}
+            th[class~="flex"]{display:block !important; width:100% !important;}
+            td[class~="logo"]{padding:30px 20px !important;}
+            td[class~="block-holder"]{padding:20px 0 !important;}
+            td[class~="bg-holder"]{background-size:cover !important; padding:30px !important;}
+            td[class~="box-01"]{padding:20px 30px !important;}
+            td[class~="p-b-30"]{padding-bottom:30px !important;}
+            td[class~="box-holder"]{padding:20px 15px !important;}
+            td[class="footer"]{padding:0 10px !important;}
         }
-      </style>
-    </head>
-    <body style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-family: 'Arial', sans-serif;" bgcolor="#ffffff">
-      <table style="min-width: 320px;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
-        <tr style="font-family: 'Arial', sans-serif;">
-          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+    </style>
+</head>
+<body style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-family: 'Arial', sans-serif;" bgcolor="#ffffff">
+<table style="min-width: 320px;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+    <tr style="font-family: 'Arial', sans-serif;">
+        <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
             <table class="flexible" width="600" align="center" style="margin: 0 auto 0;font-family: 'Arial', sans-serif;" cellpadding="0" cellspacing="0">
-              <!-- logo https://www.kdg.be/doc/huisstijl/Logo_H_Closed_whitespace.png -->
-              <tr style="font-family: 'Arial', sans-serif;">
-                <td class="logo" align="left" style="padding: 50px 0px; font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                  <a target="_blank" href="https://www.kdg.be" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #000;text-decoration: none;"><img src="https://andre.robbe.mtantwerp.eu/kdg-logo.png" border="0" style="vertical-align: top;height: 48px;font-family: 'Arial', sans-serif;border: none !important;" height="48" alt="KdG Logo"></a>
-                </td>
-              </tr>
-              <tr style="font-family: 'Arial', sans-serif;">
-                <td class="block-holder" style="padding: 0px 0 20px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                  <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                    <tr style="font-family: 'Arial', sans-serif;">
-                      <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;font-family: 'Arial', sans-serif;">
-                      Wat een avond! Hopelijk heb je ervan genoten.</td>
-                    </tr>
-                    <tr style="font-family: 'Arial', sans-serif;">
-                      <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
-                      Deel je foto of GIF via onderstaande knoppen met #kdgfeest.</td>
-                    </tr>
-                    <tr style="font-family: 'Arial', sans-serif;">
-                      <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
-                      Nog veel succes & geniet van de zomer!</td>
-                    </tr>
-                    <tr style="font-family: 'Arial', sans-serif;">
-                      <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
-                      Het proclamatie-team</td>
-                    </tr>
-                   
-								<tr style="font-family: 'Arial', sans-serif;">
-                <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="url(${imageLink})" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                  <!--[if gte mso 9]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
-                      <v:fill type="tile" src="${imageLink}" color="#fff" />
-                      <v:textbox inset="0,0,0,0">
-                        <![endif]-->
-                          <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                            <tr style="font-family: 'Arial', sans-serif;">
-                              <td width="125" height="375" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                <!-- Txt on img
-                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                  <tr style="font-family: 'Arial', sans-serif;">
-                                    <td class="box-01" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                      <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                        <tr style="font-family: 'Arial', sans-serif;">
-                                          <td class="hide" width="20" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                                          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                            <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                              <tr style="font-family: 'Arial', sans-serif;">
-                                                <td align="left" style="font: 30px/42px Arial, sans-serif;font-weight: bold;text-transform: uppercase;color: #fff;padding: 0 0 10px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                                  
-                                                </td>
-                                              </tr>
-                                            </table>
-                                          </td>
-                                          <td class="hide" width="35" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                                        </tr>
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </table>-->
-                              </td>
-                              <td width="100" height="335" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
-                            </tr>
-                          </table>
-                        <!--[if gte mso 9]>
-                      </v:textbox>
-                    </v:rect>
-                  <![endif]-->
-                </td>
-              </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr style="font-family: 'Arial', sans-serif;">
-                <td class="block-holder" style="padding: 50px 0 100px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;" align="center">
-                  <div style="font-family: 'Arial', sans-serif;">
-                    <!--[if mso]>
-                      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${req.body.albumLink}" rel="noopener" style="height:40px;v-text-anchor:middle;width:300px;" arcsize="100%" stroke="f" fillcolor="#000">
-                        <w:anchorlock/>
-                        <center>
-                      <![endif]-->
-                          <a href="${req.body.albumLink}" target="_blank" rel="noopener" style="background-color: #000;border-radius: 40px;color: #fff;display: inline-block;font-family: Arial;text-transform: uppercase;font-weight: bold;line-height: 40px;text-align: center;text-decoration: none;width: 300px;-webkit-text-size-adjust: none;outline: none;">Bekijk het album!</a>
-                      <!--[if mso]>
-                        </center>
-                      </v:roundrect>
-                    <![endif]-->
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-            </a>
-          </td>
-          <td>
-            <a href="https://twitter.com/share?url=${imageLink}&amp;hashtags=kdgfeest" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-            </a>
-          </td>
-          <td>
-            <a href="https://www.pinterest.com/pin/create/button/?&url=${imageLink}&media=${imageLink}&description=#kdgfeest" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
-            </a>
-          </td>
-        </tr>
-      </table>
-      <!-- footer -->
-      <table style="margin-top: 20px;min-width: 320px;border-top: 1px solid #191414;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7">
-        <tr style="font-family: 'Arial', sans-serif;">
-          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-            <table class="flexible" width="600" align="center" style="margin: 0 auto;font-family: 'Arial', sans-serif;" cellpadding="0" cellspacing="0">
-              <tr style="font-family: 'Arial', sans-serif;">
-                <td class="footer" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                  <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                    <tr style="font-family: 'Arial', sans-serif;">
-                      <td class="p-b-30" style="padding: 0 0 57px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                <!-- logo https://www.kdg.be/doc/huisstijl/Logo_H_Closed_whitespace.png -->
+                <tr style="font-family: 'Arial', sans-serif;">
+                    <td class="logo" align="left" style="padding: 50px 0px; font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                        <a target="_blank" href="https://www.kdg.be" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #000;text-decoration: none;"><img src="https://andre.robbe.mtantwerp.eu/kdg-logo.png" border="0" style="vertical-align: top;height: 48px;font-family: 'Arial', sans-serif;border: none !important;" height="48" alt="KdG Logo"></a>
+                    </td>
+                </tr>
+                <tr style="font-family: 'Arial', sans-serif;">
+                    <td class="block-holder" style="padding: 0px 0 20px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
                         <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                          <tr style="font-family: 'Arial', sans-serif;">
-                            <th class="flex" width="170" align="left" style="vertical-align: top;padding: 0;font-family: 'Arial', sans-serif;">
-                              <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                <tr style="font-family: 'Arial', sans-serif;">
-                                  <td class="logo" align="left" style="padding: 20px 5px 0;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
-                                    <a target="_blank" href="https://www.kdg.be" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #000;text-decoration: none;"><img src="https://andre.robbe.mtantwerp.eu/kdg-logo.png" border="0" style="vertical-align: top;height: 32px;font-family: 'Arial', sans-serif;border: none !important;" height="32" alt="KdG Logo"></a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                            <th class="flex" width="1" height="10" style="padding: 0;font-family: 'Arial', sans-serif;"></th>
-                            <th class="flex" width="36" align="left" style="vertical-align: top;padding: 0;font-family: 'Arial', sans-serif;">
-                              <table class="table-center footer-links" align="right" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
-                                <tr style="font-family: 'Arial', sans-serif;">
-                                  <td class="active" align="center" style="line-height: 20px;font-size: 14px;mso-line-height-rule: at-least;padding: 25px 10px 0;font-family: 'Arial', sans-serif;-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-ms-transition: all 0.3s ease;transition: all 0.3s ease;">
-                                    <a target="_blank" href="${imageLink}" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #34bedc;text-decoration: none;">Online bekijken</a>
-                                  </td>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;font-family: 'Arial', sans-serif;">
+                                    Wat een avond! Hopelijk heb je ervan genoten.</td>
+                            </tr>
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
+                                    Deel je foto of GIF via onderstaande knoppen met #kdgfeest.</td>
+                            </tr>
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
+                                    Nog veel succes & geniet van de zomer!</td>
+                            </tr>
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td style="line-height: 20px;font-size: 18px;mso-line-height-rule: at-least;padding: 0 0 10px;font-family: 'Arial', sans-serif;">
+                                    Het proclamatie-team</td>
+                            </tr>
+
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td class="bg-holder" width="100%" height="auto" bgcolor="#fff" background="url(${imageLink})" style="background-size: cover; background-repeat: no-repeat; background-position: center center; height: auto;width: 100%; background-repeat: no-repeat;border: 1px solid #f7f7f7;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                    <!--[if gte mso 9]>
+                                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="background-size: cover; background-repeat: no-repeat; background-position: center center; width:100%; height:auto;">
+                                        <v:fill type="tile" src="${imageLink}" color="#fff" />
+                                        <v:textbox inset="0,0,0,0">
+                                    <![endif]-->
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                        <tr style="font-family: 'Arial', sans-serif;">
+                                            <td width="125" height="375" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                                <!-- Txt on img
+                                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                                  <tr style="font-family: 'Arial', sans-serif;">
+                                                    <td class="box-01" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                                      <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                                        <tr style="font-family: 'Arial', sans-serif;">
+                                                          <td class="hide" width="20" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                                                          <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                                            <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                                              <tr style="font-family: 'Arial', sans-serif;">
+                                                                <td align="left" style="font: 30px/42px Arial, sans-serif;font-weight: bold;text-transform: uppercase;color: #fff;padding: 0 0 10px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+
+                                                                </td>
+                                                              </tr>
+                                                            </table>
+                                                          </td>
+                                                          <td class="hide" width="35" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                                                        </tr>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </table>-->
+                                            </td>
+                                            <td width="100" height="335" class="hide" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;"></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if gte mso 9]>
+                                    </v:textbox>
+                                    </v:rect>
+                                    <![endif]-->
+                                </td>
+                            </tr>
                         </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
+                    </td>
+                </tr>
+                <tr style="font-family: 'Arial', sans-serif;">
+                    <td class="block-holder" style="padding: 50px 0 50px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;" align="center">
+                        <div style="font-family: 'Arial', sans-serif;">
+                            <!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${req.body.albumLink}" rel="noopener" style="height:40px;v-text-anchor:middle;width:300px;" arcsize="100%" stroke="f" fillcolor="#000">
+                                <w:anchorlock/>
+                                <center>
+                            <![endif]-->
+                            <a href="${req.body.albumLink}" target="_blank" rel="noopener" style="background-color: #000;border-radius: 40px;color: #fff;display: inline-block;font-family: Arial;text-transform: uppercase;font-weight: bold;line-height: 40px;text-align: center;text-decoration: none;width: 300px;-webkit-text-size-adjust: none;outline: none;">Bekijk het album!</a>
+                            <!--[if mso]>
+                            </center>
+                            </v:roundrect>
+                            <![endif]-->
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top" style="padding:9px" class="mcnFollowBlockInner">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentContainer" style="min-width:100%;">
+                            <tbody><tr>
+                                <td align="center" style="padding-left:9px;padding-right:9px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnFollowContent">
+                                        <tbody><tr>
+                                            <td align="center" valign="top" style="padding-top:9px; padding-right:9px; padding-left:9px;">
+                                                <table align="center" border="0" cellpadding="0" cellspacing="0">
+                                                    <tbody><tr>
+                                                        <td align="center" valign="top">
+                                                            <!--[if mso]>
+                                                            <table align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                <tr>
+                                                            <![endif]-->
+
+                                                            <!--[if mso]>
+                                                            <td align="center" valign="top">
+                                                            <![endif]-->
+
+
+                                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
+                                                                <tbody><tr>
+                                                                    <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
+                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
+                                                                            <tbody><tr>
+                                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
+                                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
+                                                                                        <tbody><tr>
+
+                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
+                                                                                                <a href="http://www.facebook.com/sharer.php?u=${imageLink}" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-dark-facebook-48.png" style="display:block;" height="24" width="24" class=""></a>
+                                                                                            </td>
+
+
+                                                                                        </tr>
+                                                                                        </tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+
+                                                            <!--[if mso]>
+                                                            </td>
+                                                            <![endif]-->
+
+                                                            <!--[if mso]>
+                                                            <td align="center" valign="top">
+                                                            <![endif]-->
+
+
+                                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
+                                                                <tbody><tr>
+                                                                    <td valign="top" style="padding-right:10px; padding-bottom:9px;" class="mcnFollowContentItemContainer">
+                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
+                                                                            <tbody><tr>
+                                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
+                                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
+                                                                                        <tbody><tr>
+
+                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
+                                                                                                <a href="https://twitter.com/share?url=${imageLink}&amp;hashtags=kdgfeest" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-dark-twitter-48.png" style="display:block;" height="24" width="24" class=""></a>
+                                                                                            </td>
+
+
+                                                                                        </tr>
+                                                                                        </tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+
+                                                            <!--[if mso]>
+                                                            </td>
+                                                            <![endif]-->
+
+                                                           
+
+                                                            <!--[if mso]>
+                                                            <td align="center" valign="top">
+                                                            <![endif]-->
+
+
+                                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">
+                                                                <tbody><tr>
+                                                                    <td valign="top" style="padding-right:0; padding-bottom:9px;" class="mcnFollowContentItemContainer">
+                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem">
+                                                                            <tbody><tr>
+                                                                                <td align="left" valign="middle" style="padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:9px;">
+                                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="">
+                                                                                        <tbody><tr>
+
+                                                                                            <td align="center" valign="middle" width="24" class="mcnFollowIconContent">
+                                                                                                <a href="https://www.pinterest.com/pin/create/button/?&url=${imageLink}&media=${imageLink}&description=#kdgfeest" target="_blank"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-dark-pinterest-48.png" style="display:block;" height="24" width="24" class=""></a>
+                                                                                            </td>
+
+
+                                                                                        </tr>
+                                                                                        </tbody></table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            </tbody></table>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+
+                                                            <!--[if mso]>
+                                                            </td>
+                                                            <![endif]-->
+
+                                                            <!--[if mso]>
+                                                            </tr>
+                                                            </table>
+                                                            <![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                            </td>
+                                        </tr>
+                                        </tbody></table>
+                                </td>
+                            </tr>
+                            </tbody></table>
+
+                    </td>
+                </tr>
             </table>
-          </td>
-        </tr>
-      </table>
-    </html>
+        </td>
+    </tr>
+</table>
+<!-- footer -->
+<table style="margin-top: 20px;min-width: 320px;border-top: 1px solid #191414;font-family: 'Arial', sans-serif;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f7f7f7">
+    <tr style="font-family: 'Arial', sans-serif;">
+        <td style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+            <table class="flexible" width="600" align="center" style="margin: 0 auto;font-family: 'Arial', sans-serif;" cellpadding="0" cellspacing="0">
+                <tr style="font-family: 'Arial', sans-serif;">
+                    <td class="footer" style="font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                        <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                            <tr style="font-family: 'Arial', sans-serif;">
+                                <td class="p-b-30" style="padding: 0 0 57px;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                        <tr style="font-family: 'Arial', sans-serif;">
+                                            <th class="flex" width="170" align="left" style="vertical-align: top;padding: 0;font-family: 'Arial', sans-serif;">
+                                                <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                                    <tr style="font-family: 'Arial', sans-serif;">
+                                                        <td class="logo" align="left" style="padding: 20px 5px 0;font-family: 'Arial', sans-serif;mso-line-height-rule: exactly;">
+                                                            <a target="_blank" href="https://www.kdg.be" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #000;text-decoration: none;"><img src="https://andre.robbe.mtantwerp.eu/kdg-logo.png" border="0" style="vertical-align: top;height: 32px;font-family: 'Arial', sans-serif;border: none !important;" height="32" alt="KdG Logo"></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                            <th class="flex" width="1" height="10" style="padding: 0;font-family: 'Arial', sans-serif;"></th>
+                                            <th class="flex" width="36" align="left" style="vertical-align: top;padding: 0;font-family: 'Arial', sans-serif;">
+                                                <table class="table-center footer-links" align="right" cellpadding="0" cellspacing="0" style="font-family: 'Arial', sans-serif;">
+                                                    <tr style="font-family: 'Arial', sans-serif;">
+                                                        <td class="active" align="center" style="line-height: 20px;font-size: 14px;mso-line-height-rule: at-least;padding: 25px 10px 0;font-family: 'Arial', sans-serif;-webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;-ms-transition: all 0.3s ease;transition: all 0.3s ease;">
+                                                            <a target="_blank" href="${imageLink}" rel="noopener" style="font-family: 'Arial', sans-serif;outline: none;color: #34bedc;text-decoration: none;">Online bekijken</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</html>
     `,
     attachments: [{
         filename: req.body.format === 'single' ? 'picture.jpg' : 'video.mp4',
