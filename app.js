@@ -57,7 +57,7 @@ const logger = winston.createLogger({
 });
 
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 app.post('/takePicture', async (req, res) => {
@@ -71,8 +71,8 @@ app.post('/takePicture', async (req, res) => {
   try {
     const picture = await takePicture(input);
     await filterous.importImage(picture)
-    .applyInstaFilter(filter)
-    .save(input);
+      .applyInstaFilter(filter)
+      .save(input);
     await resizeImage(input, output1);
     await addOverlay(output1, imagePath, frame);
 
@@ -82,7 +82,7 @@ app.post('/takePicture', async (req, res) => {
   } catch (error) {
     logger.warn(error);
 
-    res.status(500).send({ 
+    res.status(500).send({
       message: error,
     });
   }
@@ -99,21 +99,21 @@ app.post('/takeGif', async (req, res) => {
     const picture3 = await takePicture(imageFolder(3));
     const picture4 = await takePicture(imageFolder(4));
 
-    if(filter) {
+    if (filter) {
       await Promise.all(
         [
           filterous.importImage(picture1)
-          .applyInstaFilter(filter)
-          .save(imageFolder(1)),
+            .applyInstaFilter(filter)
+            .save(imageFolder(1)),
           filterous.importImage(picture2)
-          .applyInstaFilter(filter)
-          .save(imageFolder(2)),
+            .applyInstaFilter(filter)
+            .save(imageFolder(2)),
           filterous.importImage(picture3)
-          .applyInstaFilter(filter)
-          .save(imageFolder(3)),
+            .applyInstaFilter(filter)
+            .save(imageFolder(3)),
           filterous.importImage(picture4)
-          .applyInstaFilter(filter)
-          .save(imageFolder(4))
+            .applyInstaFilter(filter)
+            .save(imageFolder(4))
         ]
       )
     }
@@ -125,7 +125,7 @@ app.post('/takeGif', async (req, res) => {
   } catch (error) {
     logger.warn(error);
 
-    res.status(500).send({ 
+    res.status(500).send({
       message: error,
     });
   }
@@ -148,7 +148,7 @@ app.post('/createGif', async (req, res) => {
       logger.warn('ffmpeg stderr:', stderr)
       return res.status(500).send()
     })
-    .on('end', async function() {
+    .on('end', async function () {
       logger.info('Video created')
       try {
         await addOverlay(input, videoPath, frame);
@@ -221,19 +221,19 @@ app.post('/sendPictureToEmail', (req, res) => {
   if (req.body.token === '') {
     return res.status(403).send('No Access Token present.');
   }
-  
+
   const fromEmail = 'postmaster@kdgphotobooth.be';
   const toEmail = req.body.email;
   const filePath = req.body.format === 'single' ? imagePath : videoPath;
-  const imageLink = req.body.imageLink || 'cid:unique@nodemailer.com';
+  const imageLink = (req.body.format === 'single' ? req.body.imageLink : `${req.body.imagelink.substring(0, req.body.imagelink.length - 3)}gif`) || 'cid:unique@nodemailer.com';
 
   let transporter = nodemailer.createTransport({
     host: 'mail.axc.nl',
     port: 465,
     secure: true,
     auth: {
-        user: 'postmaster@kdgphotobooth.be',
-        pass: 'dhJTS4BKg',
+      user: 'postmaster@kdgphotobooth.be',
+      pass: 'dhJTS4BKg',
     }
   })
 
@@ -241,8 +241,8 @@ app.post('/sendPictureToEmail', (req, res) => {
     from: `"Karel de Grote Hogeschool Antwerpen" ${fromEmail}`, // sender address
     to: toEmail, // list of receivers
     subject: 'Say cheese! 📷 Deel je foto met #kdgfeest', // Subject line
-    html: 
-    `
+    html:
+      `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Arial', sans-serif;">
 <head style="font-family: 'Arial', sans-serif;">
@@ -510,16 +510,16 @@ app.post('/sendPictureToEmail', (req, res) => {
 </html>
     `,
     attachments: [{
-        filename: req.body.format === 'single' ? 'picture.jpg' : 'video.mp4',
-        path: filePath,
-        cid: 'unique@nodemailer.com'
+      filename: req.body.format === 'single' ? 'picture.jpg' : 'video.mp4',
+      path: filePath,
+      cid: 'unique@nodemailer.com'
     }]
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-        console.log(error)
-        return res.status(400).send(error)
+      console.log(error)
+      return res.status(400).send(error)
     }
     console.log('Message sent: %s', info.messageId)
     return res.status(200).send('Email has been sent!')
@@ -547,9 +547,9 @@ const uploadPictureToGooglePhotos = async (file) => {
     headers: {
       'Content-Type': 'application/octet-stream',
       'X-Goog-Upload-File-Name': filename,
-      'X-Goog-Upload-Protocol': 'raw'  
+      'X-Goog-Upload-Protocol': 'raw'
     },
-    auth: {'bearer': authToken},
+    auth: { 'bearer': authToken },
   }
 
   // UPLOAD FILE
@@ -569,13 +569,13 @@ const uploadPictureToGooglePhotos = async (file) => {
               'uploadToken': upload_token
             }
           }
-         ,
+          ,
         ]
       },
       headers: {
         'Content-Type': 'application/json',
       },
-      auth: {'bearer': authToken},
+      auth: { 'bearer': authToken },
       json: true
     }
     logger.info(`Received Token and creating Media file`)
@@ -588,10 +588,10 @@ const uploadPictureToGooglePhotos = async (file) => {
       return result2
     } catch (error) {
       logger.warn(`Failed Uploading Media file`, error);
-      
+
       throw error;
     }
-    
+
   } catch (error) {
     logger.warn(error.statusCode)
     throw error;
@@ -603,34 +603,34 @@ function addOverlay(input, output, frame) {
 
   return new Promise((resolve, reject) => {
     ffmpeg()
-    .on('start', function (command) {
-      logger.info('Adding overlay:' + command)
-    })
-    .input(input)
-    .input(framePath)
-    .complexFilter([
-      {
-        "filter": "overlay",
-        "options": {
-          "enable": "between(t,0,4)",
-          "x": "0",
-          "y": "0"
-        },
-        "inputs": "[0:v][1:v]",
-        "outputs": "tmp"
-      }
-    ], 'tmp')
-    .outputOptions(['-pix_fmt yuv420p'])
-    .on('end', (stdout, stderr) => {
-      logger.info('Overlay added')
-      resolve();
-    })
-    .on('error', (err, stdout, stderr) => {
-      console.error('Error:', err)
-      console.error('ffmpeg stderr:', stderr)
-      reject(`Internal Server Error: `);
-    })
-    .save(output)
+      .on('start', function (command) {
+        logger.info('Adding overlay:' + command)
+      })
+      .input(input)
+      .input(framePath)
+      .complexFilter([
+        {
+          "filter": "overlay",
+          "options": {
+            "enable": "between(t,0,4)",
+            "x": "0",
+            "y": "0"
+          },
+          "inputs": "[0:v][1:v]",
+          "outputs": "tmp"
+        }
+      ], 'tmp')
+      .outputOptions(['-pix_fmt yuv420p'])
+      .on('end', (stdout, stderr) => {
+        logger.info('Overlay added')
+        resolve();
+      })
+      .on('error', (err, stdout, stderr) => {
+        console.error('Error:', err)
+        console.error('ffmpeg stderr:', stderr)
+        reject(`Internal Server Error: `);
+      })
+      .save(output)
   })
 }
 
@@ -641,18 +641,18 @@ function takePicture(filename) {
     }, (er, data) => {
       if (!er) {
         fs.writeFileSync(filename, data);
-  
+
         resolve(data);
       } else {
         if (er == '-110') {
           const errorMessage = 'Camera lens is obscured. Try again without anything in front of the lens.'
           logger.warn(errorMessage)
-  
+
           reject(errorMessage);
         } else {
           const errorMessage = 'Something went wrong taking the picture.'
           logger.warn(errorMessage)
-          
+
           reject(errorMessage);
         }
       }
@@ -663,17 +663,17 @@ function takePicture(filename) {
 function resizeImage(input, output) {
   return new Promise((resolve, reject) => {
     ffmpeg()
-    .input(input)
-    .size('1200x800')
-    .save(output)
-    .on('start', function (command) {
-      logger.info('Resizing', command)
-    })
-    .on('error', function (output) {
-      reject(output)
-    })
-    .on('end', function (output) {
-      resolve(output)
-    })
+      .input(input)
+      .size('1200x800')
+      .save(output)
+      .on('start', function (command) {
+        logger.info('Resizing', command)
+      })
+      .on('error', function (output) {
+        reject(output)
+      })
+      .on('end', function (output) {
+        resolve(output)
+      })
   })
 }
